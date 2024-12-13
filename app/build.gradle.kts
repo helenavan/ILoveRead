@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.dagger)
     kotlin("kapt")
     kotlin("plugin.serialization")
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -82,10 +83,20 @@ dependencies {
     implementation(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.fragment)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.firebase.firestore)
     kapt(libs.hilt.android.compiler)
 
     //Permissions
     implementation (libs.accompanist.permissions)
+
+    //Retrofit
+    implementation (libs.converter.gson)
+    implementation (libs.retrofit)
+    implementation (libs.retrofit2.kotlin.coroutines.adapter)
+    //oKhttp
+    implementation(libs.okhttp)
+    //interceptor
+    implementation(libs.logging.interceptor)
 
     //Serializable
     //implementation(libs.kotlinx.serialization.json.v160)
@@ -98,4 +109,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation (libs.mockito.core)
+    testImplementation (libs.kotlinx.coroutines.test)
 }
