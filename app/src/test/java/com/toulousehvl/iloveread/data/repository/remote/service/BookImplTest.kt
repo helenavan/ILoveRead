@@ -1,7 +1,7 @@
 package com.toulousehvl.iloveread.data.repository.remote.service
 
 import com.toulousehvl.iloveread.data.APIResult
-import com.toulousehvl.iloveread.data.repository.remote.response.BookResponse
+import com.toulousehvl.iloveread.data.core.response.BookResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.*
@@ -25,11 +25,11 @@ class BookImplTest {
     fun `getISBNBooks returns success when API call is successful`() = runTest {
         // Arrange
         val mockResponse = BookResponse(listOf())
-        `when`(apiService.getISBNBooks("test"))
+        `when`(apiService.getBooksDetails("test"))
             .thenReturn(Response.success(mockResponse))
 
         // Act
-        val result = bookRepository.getISBNBooks("test")
+        val result = bookRepository.getBookDetails("test")
 
         // Assert
         assert(result is APIResult.Success)
@@ -39,11 +39,11 @@ class BookImplTest {
     @Test
     fun `getISBNBooks returns error when API call is unsuccessful`() = runTest {
         // Arrange
-        `when`(apiService.getISBNBooks("test"))
+        `when`(apiService.getBooksDetails("test"))
             .thenReturn(Response.error(404, okhttp3.ResponseBody.create(null, "Not Found")))
 
         // Act
-        val result = bookRepository.getISBNBooks("test")
+        val result = bookRepository.getBookDetails("test")
 
         // Assert
         assert(result is APIResult.Error)
@@ -53,10 +53,10 @@ class BookImplTest {
     @Test
     fun `getISBNBooks returns error when API throws exception`() = runTest {
         // Arrange
-        `when`(apiService.getISBNBooks("test")).thenThrow(RuntimeException("Network error"))
+        `when`(apiService.getBooksDetails("test")).thenThrow(RuntimeException("Network error"))
 
         // Act
-        val result = bookRepository.getISBNBooks("test")
+        val result = bookRepository.getBookDetails("test")
 
         // Assert
         assert(result is APIResult.Error)

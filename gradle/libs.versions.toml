@@ -21,6 +21,8 @@ googleGmsGoogleServices = "4.4.2"
 firebaseFirestore = "25.1.1"
 okhttp = "5.0.0-alpha.2"
 retrofit2KotlinCoroutinesAdapter = "0.9.2"
+firebaseAuth = "23.1.0"
+navigation = "2.8.5"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
@@ -51,6 +53,8 @@ mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
 retrofit2-kotlin-coroutines-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofit2KotlinCoroutinesAdapter" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

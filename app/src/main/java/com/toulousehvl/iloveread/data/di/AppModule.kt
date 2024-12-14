@@ -1,9 +1,11 @@
 package com.toulousehvl.iloveread.data.di
 
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
 import com.toulousehvl.iloveread.data.repository.remote.service.BookApiService
 import com.toulousehvl.iloveread.data.repository.remote.service.BookImpl
-import com.toulousehvl.iloveread.data.repository.remote.service.BookRepository
+import com.toulousehvl.iloveread.data.repository.remote.service.UserImpl
+import com.toulousehvl.iloveread.domain.repository.BookRepository
+import com.toulousehvl.iloveread.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +16,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module that provides all dependencies from the repository package.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -49,8 +54,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFirebaseFirestore(): FirebaseFirestore {
-        return FirebaseFirestore.getInstance()
-    }
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+
+    @Provides
+    @Singleton
+    fun provideAuthenticationRepository(
+        auth: FirebaseAuth
+    ): UserRepository = UserImpl(auth)
+
+    //TODO for Firestore
 
 }

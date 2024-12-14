@@ -1,4 +1,4 @@
-package com.toulousehvl.iloveread.ui.theme
+package com.toulousehvl.iloveread.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

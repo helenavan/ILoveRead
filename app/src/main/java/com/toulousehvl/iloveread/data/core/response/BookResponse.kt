@@ -1,4 +1,4 @@
-package com.toulousehvl.iloveread.data.repository.remote.response
+package com.toulousehvl.iloveread.data.core.response
 
 import com.google.gson.annotations.SerializedName
 import com.toulousehvl.iloveread.data.model.BookItem

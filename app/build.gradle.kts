@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose)
-   // alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.dagger)
     kotlin("kapt")
     kotlin("plugin.serialization")
@@ -76,7 +75,7 @@ dependencies {
     implementation(libs.androidx.multidex)
 
     //Navigation
-    //implementation(libs.androidx.navigation.compose)
+    implementation(libs.navigation.compose)
 
     //Hilt
     implementation(libs.hilt.android)
@@ -84,6 +83,7 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.fragment)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
     kapt(libs.hilt.android.compiler)
 
     //Permissions
@@ -112,4 +112,12 @@ dependencies {
 
     testImplementation (libs.mockito.core)
     testImplementation (libs.kotlinx.coroutines.test)
+}
+
+// Allow references to generated code Rend le processus
+// de compilation plus robuste, en particulier
+// pour les projets complexes qui utilisent des bibliothèques
+// d'annotations intensivement.
+kapt {
+    correctErrorTypes = true
 }
