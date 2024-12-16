@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.toulousehvl.iloveread.data.APIResult
 import com.toulousehvl.iloveread.domain.usecase.GetDetailBookUseCase
 import com.toulousehvl.iloveread.domain.usecase.auth.UserLoginUseCase
+import com.toulousehvl.iloveread.domain.usecase.auth.UserResetPasswordUseCase
 import com.toulousehvl.iloveread.domain.usecase.firestore.GetListBooksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -18,6 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val userLoginUseCase: UserLoginUseCase,
+    private val resetPasswordUseCase: UserResetPasswordUseCase,
     //TODO in other viewmodel
     private val testUseCase: GetDetailBookUseCase,
     private val getListBooksUseCase: GetListBooksUseCase
@@ -25,6 +27,9 @@ class LoginViewModel @Inject constructor(
 
     private val _loginFlow = MutableSharedFlow<APIResult<AuthResult>>()
     val loginFlow = _loginFlow
+
+    private val _resetPasswordFlow = MutableSharedFlow<APIResult<Any>>()
+    val resetPasswordFlow = _resetPasswordFlow
 
     private val _user = MutableStateFlow<FirebaseUser?>(null)
     val user: MutableStateFlow<FirebaseUser?> = _user
@@ -36,6 +41,12 @@ class LoginViewModel @Inject constructor(
 
                 Log.d("LoginViewModel", "=== Login successful + ${_loginFlow}")
             }
+        }
+    }
+
+    fun resetPassword(email: String) = viewModelScope.launch {
+        resetPasswordUseCase.invoke(email).collect { response ->
+            _resetPasswordFlow.emit(response)
         }
     }
 

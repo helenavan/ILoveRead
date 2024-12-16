@@ -60,6 +60,10 @@ android {
             excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
+    //TODO
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
