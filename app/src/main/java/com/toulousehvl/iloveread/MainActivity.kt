@@ -30,8 +30,9 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-                    viewModel.login("kpitaine@gmail.com", "azerty")
-                    viewModel.test()
+                    viewModel.login("tedone.bd@gmail.com", "azerty")
+                    viewModel.getListBooks()
+                   // viewModel.test()
                 }
             }
         }

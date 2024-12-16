@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.toulousehvl.iloveread.data.APIResult
 import com.toulousehvl.iloveread.domain.usecase.GetDetailBookUseCase
 import com.toulousehvl.iloveread.domain.usecase.auth.UserLoginUseCase
+import com.toulousehvl.iloveread.domain.usecase.firestore.GetListBooksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val userLoginUseCase: UserLoginUseCase,
-    private val testUseCase: GetDetailBookUseCase
+    //TODO in other viewmodel
+    private val testUseCase: GetDetailBookUseCase,
+    private val getListBooksUseCase: GetListBooksUseCase
 ) : ViewModel() {
 
     private val _loginFlow = MutableSharedFlow<APIResult<AuthResult>>()
@@ -50,6 +53,27 @@ class LoginViewModel @Inject constructor(
                 }
 
                 APIResult.Loading -> TODO()
+            }
+        }
+    }
+
+    fun getListBooks() = viewModelScope.launch {
+        getListBooksUseCase.invoke().collect { response ->
+            when (response) {
+                is APIResult.Success -> {
+                    // Handle success
+                    Log.d("LoginViewModel", "Success get books ===> ${response.data}")
+                }
+
+                is APIResult.Error -> {
+                    // Handle error
+                    Log.d("BooksFirestoreViewModel", "Error ===> ${response.exception}")
+                }
+
+                APIResult.Loading -> {
+                    // Handle loading
+                    false
+                }
             }
         }
     }

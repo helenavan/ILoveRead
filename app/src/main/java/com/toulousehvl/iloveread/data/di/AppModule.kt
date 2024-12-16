@@ -1,6 +1,7 @@
 package com.toulousehvl.iloveread.data.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.toulousehvl.iloveread.data.repository.remote.service.BookApiService
 import com.toulousehvl.iloveread.data.repository.remote.service.BookImpl
 import com.toulousehvl.iloveread.data.repository.remote.service.UserImpl
@@ -58,10 +59,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAuthenticationRepository(
-        auth: FirebaseAuth
-    ): UserRepository = UserImpl(auth)
+    fun provideFirebaseFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    //TODO for Firestore
+    @Provides
+    @Singleton
+    fun provideAuthenticationRepository(
+        auth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    ): UserRepository = UserImpl(auth, firestore)
 
 }
