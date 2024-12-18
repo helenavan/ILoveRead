@@ -1,7 +1,9 @@
 package com.toulousehvl.iloveread.data.model
 
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
+
+@Serializable
 data class VolumeInfo(
     var id: String? = null,
     var title: String? = null,
@@ -21,4 +23,4 @@ data class VolumeInfo(
     var infoLink: String? = null,
     var canonicalVolumeLink: String? = null,
     var industryIdentifiers: List<IndustryIdentifier>? = null
-) : Serializable
+)

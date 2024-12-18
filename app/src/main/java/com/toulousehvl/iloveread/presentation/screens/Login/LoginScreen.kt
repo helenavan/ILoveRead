@@ -43,7 +43,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.AuthResult
 import com.toulousehvl.iloveread.data.APIResult
-import com.toulousehvl.iloveread.presentation.navigation.NavigationGraph
+import com.toulousehvl.iloveread.presentation.navigation.Screens
 import com.toulousehvl.iloveread.presentation.screens.component.CircularProgressCustom
 import com.toulousehvl.iloveread.presentation.screens.component.LoginAlertDialog
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -67,10 +67,10 @@ fun LoginScreen(
             paddingValues = paddingValues,
             signInStateFlow = loginViewModel.loginFlow,
             resetPasswordStateFlow = loginViewModel.resetPasswordFlow,
-            onRegisterNow = { navHostController.navigate(NavigationGraph.RegisterScreen.route) },
+            onRegisterNow = { navHostController.navigate( "register") },
             onForgotPassword = { email -> loginViewModel.resetPassword(email) },
             onLogin = { email, password -> loginViewModel.login(email, password) },
-            loginSuccess = { navHostController.navigate(NavigationGraph.HomeScreen.route) { popUpTo(0) } }
+            loginSuccess = { navHostController.navigate(Screens.HomeScreen.route) { popUpTo(0) } }
         )
     }
 }

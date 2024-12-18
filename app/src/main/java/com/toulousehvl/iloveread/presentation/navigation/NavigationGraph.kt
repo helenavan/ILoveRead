@@ -1,7 +1,8 @@
 package com.toulousehvl.iloveread.presentation.navigation
 
-sealed class NavigationGraph(val route: String) {
-    data object HomeScreen : NavigationGraph("home_screen")
-    data object LoginScreen : NavigationGraph("login_screen")
-    data object RegisterScreen : NavigationGraph("register_screen")
+sealed class Screens(val route: String) {
+    //TODO home hierarchy
+    data object HomeScreen : Screens("home")
+    data object LoginScreen : Screens("login")
+    data object RegisterScreen : Screens("register")
 }

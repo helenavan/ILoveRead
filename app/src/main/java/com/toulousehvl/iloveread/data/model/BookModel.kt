@@ -1,5 +1,8 @@
 package com.toulousehvl.iloveread.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class BookModel(
     var id: String? = null,
     var title: String? = null,

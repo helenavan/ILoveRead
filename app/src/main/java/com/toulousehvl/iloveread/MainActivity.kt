@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.toulousehvl.iloveread.presentation.navigation.LoginNavigationGraph
+import com.toulousehvl.iloveread.presentation.navigation.RootNavigationGraph
 import com.toulousehvl.iloveread.presentation.screens.Login.LoginViewModel
 import com.toulousehvl.iloveread.presentation.ui.theme.ILoveReadTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginNavigationGraph()
+                    RootNavigationGraph()
                 }
             }
         }

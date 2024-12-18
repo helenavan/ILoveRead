@@ -7,28 +7,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.toulousehvl.iloveread.presentation.screens.Login.LoginScreen
-import com.toulousehvl.iloveread.presentation.screens.register.RegisterScreen
 import com.toulousehvl.iloveread.presentation.screens.home.HomeScreen
 
-
 @Composable
-fun LoginNavigationGraph(
+fun HomeNavigationGraph(
     navHostController: NavHostController = rememberNavController()
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Screens.LoginScreen.route
+        startDestination = Screens.HomeScreen.route
     ) {
-        composable(
-            route = Screens.LoginScreen.route
-        ) {
-            LoginScreen(navHostController)
-        }
-        composable(
-            route = Screens.RegisterScreen.route
-        ) {
-            RegisterScreen(navHostController)
+        composable(route = Screens.HomeScreen.route) {
+           HomeScreen(navHostController)
+
+            Log.d("HomeNavigationGraph", "=== HomeScreen")
         }
     }
 }

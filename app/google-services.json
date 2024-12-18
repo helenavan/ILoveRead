@@ -1,80 +1,26 @@
 {
   "project_info": {
-    "project_number": "331465062826",
-    "firebase_url": "https://mybibliotheque-46d02.firebaseio.com",
-    "project_id": "mybibliotheque-46d02",
-    "storage_bucket": "mybibliotheque-46d02.appspot.com"
+    "project_number": "713247697695",
+    "project_id": "iloveread-c4dc5",
+    "storage_bucket": "iloveread-c4dc5.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:331465062826:android:c34eab7d297eba65",
-        "android_client_info": {
-          "package_name": "com.helenacorp.android.mybibliotheque"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "331465062826-c74crq59c75qk7ouk7pt4dpv3ccu5u66.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.helenacorp.android.mybibliotheque",
-            "certificate_hash": "bd9fcc44ad47fdfbbaa80aae4eaf4d3c7189af29"
-          }
-        },
-        {
-          "client_id": "331465062826-gijldit113h6mem7av70m4n40vp7hido.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDfQzOdJ7RLXAnhOh6OcW1R0Uv5hvNxV24"
-        },
-        {
-          "current_key": "AIzaSyAlWyoofa2YkO-5rak_5y66q8ZdT6NfRyQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "331465062826-gijldit113h6mem7av70m4n40vp7hido.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:331465062826:android:cd74fc1d14ad2d09bf13d3",
+        "mobilesdk_app_id": "1:713247697695:android:5667f983f56067060d1e2a",
         "android_client_info": {
           "package_name": "com.toulousehvl.iloveread"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "331465062826-gijldit113h6mem7av70m4n40vp7hido.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDfQzOdJ7RLXAnhOh6OcW1R0Uv5hvNxV24"
-        },
-        {
-          "current_key": "AIzaSyAlWyoofa2YkO-5rak_5y66q8ZdT6NfRyQ"
+          "current_key": "AIzaSyAvtpd0fQMwmMQwhvrk0fVw6Eib-LObkKE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "331465062826-gijldit113h6mem7av70m4n40vp7hido.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

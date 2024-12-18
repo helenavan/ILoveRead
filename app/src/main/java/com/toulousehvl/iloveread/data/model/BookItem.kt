@@ -1,7 +1,9 @@
 package com.toulousehvl.iloveread.data.model
 
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
+
+@Serializable
 data class BookItem(
     var kind: String? = null,
     var id: String? = null,
@@ -9,4 +11,4 @@ data class BookItem(
     var selfLink: String? = null,
     var volumeInfo: VolumeInfo? = null,
     var searchInfo: SearchInfo? = null
-) : Serializable
+)

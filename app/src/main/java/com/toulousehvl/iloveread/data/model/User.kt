@@ -1,5 +1,8 @@
 package com.toulousehvl.iloveread.data.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class User(
     var uID:String? = null,
     var pseudoFirebase:String? = null,

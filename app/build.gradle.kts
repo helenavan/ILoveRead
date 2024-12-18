@@ -60,9 +60,8 @@ android {
             excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
-    //TODO
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -86,8 +85,12 @@ dependencies {
     implementation(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.fragment)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //Firebase
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
+    implementation(platform(libs.firebase.bom))
+
     kapt(libs.hilt.android.compiler)
 
     //Permissions
@@ -103,7 +106,7 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     //Serializable
-    //implementation(libs.kotlinx.serialization.json.v160)
+    implementation (libs.jetbrains.kotlinx.serialization.json.v160)
 
     //Tests
     testImplementation(libs.junit)

@@ -43,7 +43,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.firebase.auth.AuthResult
 import com.toulousehvl.iloveread.data.APIResult
-import com.toulousehvl.iloveread.presentation.navigation.NavigationGraph
+import com.toulousehvl.iloveread.presentation.navigation.Screens
 import com.toulousehvl.iloveread.presentation.screens.component.CircularProgressCustom
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
@@ -81,7 +81,7 @@ fun RegisterScreen(
             registerFlowState = registerViewModel.registerFlow,
             onNavigateToLogin = { navHostController.popBackStack() },
             onRegister = { email, password -> registerViewModel.register(email, password) },
-            registerSuccess = { navHostController.navigate(NavigationGraph.HomeScreen.route) },
+            registerSuccess = { navHostController.navigate( Screens.HomeScreen.route) },
             registerError = { scope.launch { hostState.showSnackbar("Oops! something went wrong, check your connection and try again") } }
         )
     }
